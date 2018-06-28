@@ -1,0 +1,58 @@
+body{
+    background: #0b152f !important;
+
+}
+header aside nav li a {
+    font-size: 16px;
+}
+
+a{
+    color: #fff;
+}
+.currency-col{ height:auto; line-height:38px; padding:0 10px;}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: #fff !important;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+th, td{
+    text-align: center;
+    padding: 12px 0;
+    color: #fff;
+}
+th{
+    color: #F3C139;
+}
+.tradecls{
+    background: #4c8419;
+    text-transform: uppercase;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    height: 30px;
+    line-height: 30px;
+}

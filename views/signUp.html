@@ -1,0 +1,745 @@
+<!--?php
+ $tab=$this->uri->segment(2);
+?-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--?php
+      if(isset($meta_rec)){
+        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+        //$meta_rec = $this->meta_info;
+        if (is_array($meta_rec) && !empty($meta_rec)) {
+        ?>
+        <title><?php echo $meta_rec['meta_title']; ?></title>
+        <meta name="description" content="<?php echo $meta_rec['meta_description']; ?>" />
+        <meta  name="keywords" content="<?php echo $meta_rec['meta_keyword']; ?>" />
+        <?php }
+
+      }else{ ?>
+        <title>Zecoex</title>
+        <meta name="description" content="" />
+        <meta  name="keywords" content="" />
+        <?php  }
+    ?-->
+        <link rel="icon" href="/assets/images/favicon.ico">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/responsive.css">
+        <link rel="stylesheet" href="/assets/css/animations.css">
+        <link rel="stylesheet" href="/assets/css/side-menu.css">
+        <link rel="stylesheet" href="/assets/css/lc_switch.css">
+        <link href="/css/signIn.css" type="text/css" rel="stylesheet" media="all">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min."></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="google-site-verification" content="kseEkxXnth5KVx6iTHUHMwRDwg5rwLVO_bwrUiwS0gs" />
+        <script type="text/javascript" async src="https://www.google-analytics.com/analytics.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107414131-1"></script>
+
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/59f17df94854b82732ff7b7b/default';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
+
+        <meta name="google-site-verification" content="kseEkxXnth5KVx6iTHUHMwRDwg5rwLVO_bwrUiwS0gs" />
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108732724-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-108732724-1');
+        </script>
+    </head>
+
+    <body >
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2 text-sm-left">
+                        <div class="header_logo">
+                            <a href="https://www.zecoex.com/" title="">
+                                <img src="/assets/images/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 text-sm-right">
+                        <nav>
+                            <div class="nav-mobile"> <a id="nav-toggle" href="#!" class=""><span></span></a></div>
+                            <ul class="nav-list">
+                                <!--?php if($this->session->userdata('user_logged_in')==TRUE ){?>
+                                <?php if($tab=='dashboard'){?>
+                                <li><a href="<?php echo base_url()."users/dashboard"; ?>" class="active">Dashboard</a></li>
+                                <?php } else{ ?>
+                                <li><a href="<?php echo base_url()."users/dashboard"; ?>">Dashboard</a></li>
+                                <?php }}?>
+
+                                <?php  if($tab=='videos'){?>
+                                <li><a href="https://www.zecoex.com/videos.html" class="active" target="_blank">Videos</a></li>
+                                <?php } else{ ?>
+                                <li><a href="https://www.zecoex.com/videos.html"  target="_blank">Videos</a></li>
+                                <?php }?>
+
+                                <?php  if($tab=='news'){?>
+                                <li><a href="https://www.zecoex.com/news.html" class="active" target="_blank">News</a></li>
+                                <?php } else{ ?>
+                                <li><a href="https://www.zecoex.com/news.html"  target="_blank">News</a></li>
+                                <?php }?>
+
+                                <?php  if($tab=='about'){?>
+                                <li><a href="https://www.zecoex.com/about.html" class="active" target="_blank">About</a></li>
+                                <?php }else{?>
+                                <li><a href="https://www.zecoex.com/about.html" target="_blank">About</a></li>
+                                <?php }?>
+
+
+                                <?php  if($tab=='support'){?>
+                                <li><a href="https://www.zecoex.com/support.html" class="active" target="_blank">Support</a></li>
+                                <?php }else{?>
+                                <li><a href="https://www.zecoex.com/support.html" target="_blank">Support</a></li>
+                                <?php }?>
+
+                                <?php if($this->session->userdata('user_logged_in')==TRUE){?>
+                                <li><a href="<?php echo base_url()."users/logout"; ?>">Log Out</a></li>
+                                <?php }else{ ?>
+
+                                <?php  if($tab=='signup'){?>
+                                <li><a href="<?php echo base_url()."users/signup"; ?>" class="active">Sign Up</a></li>
+                                <?php }else{?>
+                                <li><a href="<?php echo base_url()."users/signup"; ?>">Sign Up</a></li>
+                                <?php }?>
+
+                                <?php  if($tab=='signin'){?>
+                                <li><a href="<?php echo base_url()."users/signin"; ?>" class="active">Sign In</a></li>
+                                <?php }else{?>
+                                <li><a href="<?php echo base_url()."users/signin"; ?>">Sign In</a></li>
+                                <?php }?>
+
+                                <?php  }?-->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <script type="text/javascript">
+            function show_hide(){
+                if(password.type=='text'){
+                    password.type='password';
+                    getElementById("show_hideee").innerHTML = 'Show';
+                }
+                else{
+                    password.type='text';
+                    getElementById("show_hideee").innerHTML = 'Hide';
+                }
+            }
+            function show_hide1(){
+                if(con_password.type=='text'){
+                    con_password.type='password';
+                    getElementById("show_hideee").innerHTML = 'Show';
+                }
+                else{
+                    con_password.type='text';
+                    getElementById("show_hideee").innerHTML = 'Hide';
+                }
+            }
+        </script>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 form_section">
+                        <h2>Create ZECOEX Account</h2>
+                        <div class="col-md-7 form">
+                            <!--?php if($this->session->flashdata('success')):?>
+                            <div id="successBox"  class="success success1">
+                                <?php echo $this->session->flashdata('success');?>
+                            </div>
+                            <?php endif;?>
+
+                            <?php echo form_open_multipart('');?-->
+
+
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input name="fullname" id="fullname" type="text" value="">
+                                <span class="form_error alert-danger" style="text-align:left!important;"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email ID</label>
+                                <input name="email" id="email" type="text" value="">
+                                <input name="userID" id="userID" type="hidden" value="">
+                                <input name="transaction_id" id="transaction_id" type="hidden" value="">
+                                <span class="form_error alert-danger" style="text-align:left!important;"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mobile Number</label>
+                                <div>
+                                    <select name="country_code" style="width: 25%;     background: #faffbb;   padding: 9px 0px 10px 0px;">
+                                        <option data-countryCode="" value="">Select Code</option>
+                                        <option data-countryCode="DZ" value="213">Algeria (+213)</option>
+                                        <option data-countryCode="AD" value="+376">Andorra (+376)</option>
+                                        <option data-countryCode="AO" value="+244">Angola (+244)</option>
+                                        <option data-countryCode="AI" value="+1264">Anguilla (+1264)</option>
+                                        <option data-countryCode="AG" value="+1268">Antigua &amp; Barbuda (+1268)</option>
+                                        <option data-countryCode="AR" value="+54">Argentina (+54)</option>
+                                        <option data-countryCode="AM" value="+374">Armenia (+374)</option>
+                                        <option data-countryCode="AW" value="+297">Aruba (+297)</option>
+                                        <option data-countryCode="AU" value="+61">Australia (+61)</option>
+                                        <option data-countryCode="AT" value="+43">Austria (+43)</option>
+                                        <option data-countryCode="AZ" value="+994">Azerbaijan (+994)</option>
+                                        <option data-countryCode="BS" value="+1242">Bahamas (+1242)</option>
+                                        <option data-countryCode="BH" value="+973">Bahrain (+973)</option>
+                                        <option data-countryCode="BD" value="+880">Bangladesh (+880)</option>
+                                        <option data-countryCode="BB" value="+1246">Barbados (+1246)</option>
+                                        <option data-countryCode="BY" value="+375">Belarus (+375)</option>
+                                        <option data-countryCode="BE" value="+32">Belgium (+32)</option>
+                                        <option data-countryCode="BZ" value="+501">Belize (+501)</option>
+                                        <option data-countryCode="BJ" value="+229">Benin (+229)</option>
+                                        <option data-countryCode="BM" value="+1441">Bermuda (+1441)</option>
+                                        <option data-countryCode="BT" value="+975">Bhutan (+975)</option>
+                                        <option data-countryCode="BO" value="+591">Bolivia (+591)</option>
+                                        <option data-countryCode="BA" value="+387">Bosnia Herzegovina (+387)</option>
+                                        <option data-countryCode="BW" value="+267">Botswana (+267)</option>
+                                        <option data-countryCode="BR" value="+55">Brazil (+55)</option>
+                                        <option data-countryCode="BN" value="+673">Brunei (+673)</option>
+                                        <option data-countryCode="BG" value="+359">Bulgaria (+359)</option>
+                                        <option data-countryCode="BF" value="+226">Burkina Faso (+226)</option>
+                                        <option data-countryCode="BI" value="+257">Burundi (+257)</option>
+                                        <option data-countryCode="KH" value="+855">Cambodia (+855)</option>
+                                        <option data-countryCode="CM" value="+237">Cameroon (+237)</option>
+                                        <option data-countryCode="CA" value="+1">Canada (+1)</option>
+                                        <option data-countryCode="CV" value="+238">Cape Verde Islands (+238)</option>
+                                        <option data-countryCode="KY" value="+1345">Cayman Islands (+1345)</option>
+                                        <option data-countryCode="CF" value="+236">Central African Republic (+236)</option>
+                                        <option data-countryCode="CL" value="+56">Chile (+56)</option>
+                                        <option data-countryCode="CN" value="+86">China (+86)</option>
+                                        <option data-countryCode="CO" value="+57">Colombia (+57)</option>
+                                        <option data-countryCode="KM" value="+269">Comoros (+269)</option>
+                                        <option data-countryCode="CG" value="+242">Congo (+242)</option>
+                                        <option data-countryCode="CK" value="+682">Cook Islands (+682)</option>
+                                        <option data-countryCode="CR" value="+506">Costa Rica (+506)</option>
+                                        <option data-countryCode="HR" value="+385">Croatia (+385)</option>
+                                        <option data-countryCode="CU" value="+53">Cuba (+53)</option>
+                                        <option data-countryCode="CY" value="+90392">Cyprus North (+90392)</option>
+                                        <option data-countryCode="CY" value="+357">Cyprus South (+357)</option>
+                                        <option data-countryCode="CZ" value="+42">Czech Republic (+42)</option>
+                                        <option data-countryCode="DK" value="+45">Denmark (+45)</option>
+                                        <option data-countryCode="DJ" value="+253">Djibouti (+253)</option>
+                                        <option data-countryCode="DM" value="+1809">Dominica (+1809)</option>
+                                        <option data-countryCode="DO" value="+1809">Dominican Republic (+1809)</option>
+                                        <option data-countryCode="EC" value="+593">Ecuador (+593)</option>
+                                        <option data-countryCode="EG" value="+20">Egypt (+20)</option>
+                                        <option data-countryCode="SV" value="+503">El Salvador (+503)</option>
+                                        <option data-countryCode="GQ" value="+240">Equatorial Guinea (+240)</option>
+                                        <option data-countryCode="ER" value="+291">Eritrea (+291)</option>
+                                        <option data-countryCode="EE" value="+372">Estonia (+372)</option>
+                                        <option data-countryCode="ET" value="+251">Ethiopia (+251)</option>
+                                        <option data-countryCode="FK" value="+500">Falkland Islands (+500)</option>
+                                        <option data-countryCode="FO" value="+298">Faroe Islands (+298)</option>
+                                        <option data-countryCode="FJ" value="+679">Fiji (+679)</option>
+                                        <option data-countryCode="FI" value="+358">Finland (+358)</option>
+                                        <option data-countryCode="FR" value="+33">France (+33)</option>
+                                        <option data-countryCode="GF" value="+594">French Guiana (+594)</option>
+                                        <option data-countryCode="PF" value="+689">French Polynesia (+689)</option>
+                                        <option data-countryCode="GA" value="+241">Gabon (+241)</option>
+                                        <option data-countryCode="GM" value="+220">Gambia (+220)</option>
+                                        <option data-countryCode="GE" value="+7880">Georgia (+7880)</option>
+                                        <option data-countryCode="DE" value="+49">Germany (+49)</option>
+                                        <option data-countryCode="GH" value="+233">Ghana (+233)</option>
+                                        <option data-countryCode="GI" value="+350">Gibraltar (+350)</option>
+                                        <option data-countryCode="GR" value="+30">Greece (+30)</option>
+                                        <option data-countryCode="GL" value="+299">Greenland (+299)</option>
+                                        <option data-countryCode="GD" value="+1473">Grenada (+1473)</option>
+                                        <option data-countryCode="GP" value="+590">Guadeloupe (+590)</option>
+                                        <option data-countryCode="GU" value="+671">Guam (+671)</option>
+                                        <option data-countryCode="GT" value="+502">Guatemala (+502)</option>
+                                        <option data-countryCode="GN" value="+224">Guinea (+224)</option>
+                                        <option data-countryCode="GW" value="+245">Guinea - Bissau (+245)</option>
+                                        <option data-countryCode="GY" value="+592">Guyana (+592)</option>
+                                        <option data-countryCode="HT" value="+509">Haiti (+509)</option>
+                                        <option data-countryCode="HN" value="+504">Honduras (+504)</option>
+                                        <option data-countryCode="HK" value="+852">Hong Kong (+852)</option>
+                                        <option data-countryCode="HU" value="+36">Hungary (+36)</option>
+                                        <option data-countryCode="IS" value="+354">Iceland (+354)</option>
+                                        <option data-countryCode="IN" value="+91">India (+91)</option>
+                                        <option data-countryCode="ID" value="+62">Indonesia (+62)</option>
+                                        <option data-countryCode="IR" value="+98">Iran (+98)</option>
+                                        <option data-countryCode="IQ" value="+964">Iraq (+964)</option>
+                                        <option data-countryCode="IE" value="+353">Ireland (+353)</option>
+                                        <option data-countryCode="IL" value="+972">Israel (+972)</option>
+                                        <option data-countryCode="IT" value="+39">Italy (+39)</option>
+                                        <option data-countryCode="JM" value="+1876">Jamaica (+1876)</option>
+                                        <option data-countryCode="JP" value="+81">Japan (+81)</option>
+                                        <option data-countryCode="JO" value="+962">Jordan (+962)</option>
+                                        <option data-countryCode="KZ" value="+7">Kazakhstan (+7)</option>
+                                        <option data-countryCode="KE" value="+254">Kenya (+254)</option>
+                                        <option data-countryCode="KI" value="+686">Kiribati (+686)</option>
+                                        <option data-countryCode="KP" value="+850">Korea North (+850)</option>
+                                        <option data-countryCode="KR" value="+82">Korea South (+82)</option>
+                                        <option data-countryCode="KW" value="+965">Kuwait (+965)</option>
+                                        <option data-countryCode="KG" value="+996">Kyrgyzstan (+996)</option>
+                                        <option data-countryCode="LA" value="+856">Laos (+856)</option>
+                                        <option data-countryCode="LV" value="+371">Latvia (+371)</option>
+                                        <option data-countryCode="LB" value="+961">Lebanon (+961)</option>
+                                        <option data-countryCode="LS" value="+266">Lesotho (+266)</option>
+                                        <option data-countryCode="LR" value="+231">Liberia (+231)</option>
+                                        <option data-countryCode="LY" value="+218">Libya (+218)</option>
+                                        <option data-countryCode="LI" value="+417">Liechtenstein (+417)</option>
+                                        <option data-countryCode="LT" value="+370">Lithuania (+370)</option>
+                                        <option data-countryCode="LU" value="+352">Luxembourg (+352)</option>
+                                        <option data-countryCode="MO" value="+853">Macao (+853)</option>
+                                        <option data-countryCode="MK" value="+389">Macedonia (+389)</option>
+                                        <option data-countryCode="MG" value="+261">Madagascar (+261)</option>
+                                        <option data-countryCode="MW" value="+265">Malawi (+265)</option>
+                                        <option data-countryCode="MY" value="+60">Malaysia (+60)</option>
+                                        <option data-countryCode="MV" value="+960">Maldives (+960)</option>
+                                        <option data-countryCode="ML" value="+223">Mali (+223)</option>
+                                        <option data-countryCode="MT" value="+356">Malta (+356)</option>
+                                        <option data-countryCode="MH" value="+692">Marshall Islands (+692)</option>
+                                        <option data-countryCode="MQ" value="+596">Martinique (+596)</option>
+                                        <option data-countryCode="MR" value="+222">Mauritania (+222)</option>
+                                        <option data-countryCode="YT" value="+269">Mayotte (+269)</option>
+                                        <option data-countryCode="MX" value="+52">Mexico (+52)</option>
+                                        <option data-countryCode="FM" value="+691">Micronesia (+691)</option>
+                                        <option data-countryCode="MD" value="+373">Moldova (+373)</option>
+                                        <option data-countryCode="MC" value="+377">Monaco (+377)</option>
+                                        <option data-countryCode="MN" value="+976">Mongolia (+976)</option>
+                                        <option data-countryCode="MS" value="+1664">Montserrat (+1664)</option>
+                                        <option data-countryCode="MA" value="+212">Morocco (+212)</option>
+                                        <option data-countryCode="MZ" value="+258">Mozambique (+258)</option>
+                                        <option data-countryCode="MN" value="+95">Myanmar (+95)</option>
+                                        <option data-countryCode="NA" value="+264">Namibia (+264)</option>
+                                        <option data-countryCode="NR" value="+674">Nauru (+674)</option>
+                                        <option data-countryCode="NP" value="+977">Nepal (+977)</option>
+                                        <option data-countryCode="NL" value="+31">Netherlands (+31)</option>
+                                        <option data-countryCode="NC" value="+687">New Caledonia (+687)</option>
+                                        <option data-countryCode="NZ" value="+64">New Zealand (+64)</option>
+                                        <option data-countryCode="NI" value="+505">Nicaragua (+505)</option>
+                                        <option data-countryCode="NE" value="+227">Niger (+227)</option>
+                                        <option data-countryCode="NG" value="+234">Nigeria (+234)</option>
+                                        <option data-countryCode="NU" value="+683">Niue (+683)</option>
+                                        <option data-countryCode="NF" value="+672">Norfolk Islands (+672)</option>
+                                        <option data-countryCode="NP" value="+670">Northern Marianas (+670)</option>
+                                        <option data-countryCode="NO" value="+47">Norway (+47)</option>
+                                        <option data-countryCode="OM" value="+968">Oman (+968)</option>
+                                        <option data-countryCode="PW" value="+680">Palau (+680)</option>
+                                        <option data-countryCode="PA" value="+507">Panama (+507)</option>
+                                        <option data-countryCode="PY" value="+595">Paraguay (+595)</option>
+                                        <option data-countryCode="PE" value="+51">Peru (+51)</option>
+                                        <option data-countryCode="PH" value="+63">Philippines (+63)</option>
+                                        <option data-countryCode="PL" value="+48">Poland (+48)</option>
+                                        <option data-countryCode="PT" value="+351">Portugal (+351)</option>
+                                        <option data-countryCode="PR" value="+1787">Puerto Rico (+1787)</option>
+                                        <option data-countryCode="QA" value="+974">Qatar (+974)</option>
+                                        <option data-countryCode="RE" value="+262">Reunion (+262)</option>
+                                        <option data-countryCode="RO" value="+40">Romania (+40)</option>
+                                        <option data-countryCode="RU" value="+7">Russia (+7)</option>
+                                        <option data-countryCode="RW" value="+250">Rwanda (+250)</option>
+                                        <option data-countryCode="SM" value="+378">San Marino (+378)</option>
+                                        <option data-countryCode="ST" value="+239">Sao Tome &amp; Principe (+239)</option>
+                                        <option data-countryCode="SA" value="+966">Saudi Arabia (+966)</option>
+                                        <option data-countryCode="SN" value="+221">Senegal (+221)</option>
+                                        <option data-countryCode="CS" value="+381">Serbia (+381)</option>
+                                        <option data-countryCode="SC" value="+248">Seychelles (+248)</option>
+                                        <option data-countryCode="SL" value="+232">Sierra Leone (+232)</option>
+                                        <option data-countryCode="SG" value="+65">Singapore (+65)</option>
+                                        <option data-countryCode="SK" value="+421">Slovak Republic (+421)</option>
+                                        <option data-countryCode="SI" value="+386">Slovenia (+386)</option>
+                                        <option data-countryCode="SB" value="+677">Solomon Islands (+677)</option>
+                                        <option data-countryCode="ZA" value="+27">South Africa (+27)</option>
+                                        <option data-countryCode="ES" value="+34">Spain (+34)</option>
+                                        <option data-countryCode="LK" value="+94">Sri Lanka (+94)</option>
+                                        <option data-countryCode="SH" value="+290">St. Helena (+290)</option>
+                                        <option data-countryCode="KN" value="+1869">St. Kitts (+1869)</option>
+                                        <option data-countryCode="SC" value="+1758">St. Lucia (+1758)</option>
+                                        <option data-countryCode="SD" value="+249">Sudan (+249)</option>
+                                        <option data-countryCode="SR" value="+597">Suriname (+597)</option>
+                                        <option data-countryCode="SZ" value="+268">Swaziland (+268)</option>
+                                        <option data-countryCode="SE" value="+46">Sweden (+46)</option>
+                                        <option data-countryCode="CH" value="+41">Switzerland (+41)</option>
+                                        <option data-countryCode="TW" value="+886">Taiwan (+886)</option>
+                                        <option data-countryCode="TJ" value="+7">Tajikstan (+7)</option>
+                                        <option data-countryCode="TH" value="+66">Thailand (+66)</option>
+                                        <option data-countryCode="TG" value="+228">Togo (+228)</option>
+                                        <option data-countryCode="TO" value="+676">Tonga (+676)</option>
+                                        <option data-countryCode="TT" value="+1868">Trinidad &amp; Tobago (+1868)</option>
+                                        <option data-countryCode="TN" value="+216">Tunisia (+216)</option>
+                                        <option data-countryCode="TR" value="+90">Turkey (+90)</option>
+                                        <option data-countryCode="TM" value="+7">Turkmenistan (+7)</option>
+                                        <option data-countryCode="TM" value="+993">Turkmenistan (+993)</option>
+                                        <option data-countryCode="TC" value="+1649">Turks &amp; Caicos Islands (+1649)</option>
+                                        <option data-countryCode="TV" value="+688">Tuvalu (+688)</option>
+                                        <option data-countryCode="UG" value="+256">Uganda (+256)</option>
+                                        <option data-countryCode="GB" value="+44">UK (+44)</option>
+                                        <option data-countryCode="UA" value="+380">Ukraine (+380)</option>
+                                        <option data-countryCode="AE" value="+971">United Arab Emirates (+971)</option>
+                                        <option data-countryCode="UY" value="+598">Uruguay (+598)</option>
+                                        <option data-countryCode="US" value="+1">USA (+1)</option>
+                                        <option data-countryCode="UZ" value="+7">Uzbekistan (+7)</option>
+                                        <option data-countryCode="VU" value="+678">Vanuatu (+678)</option>
+                                        <option data-countryCode="VA" value="+379">Vatican City (+379)</option>
+                                        <option data-countryCode="VE" value="+58">Venezuela (+58)</option>
+                                        <option data-countryCode="VN" value="+84">Vietnam (+84)</option>
+                                        <option data-countryCode="VG" value="+84">Virgin Islands - British (+1284)</option>
+                                        <option data-countryCode="VI" value="+84">Virgin Islands - US (+1340)</option>
+                                        <option data-countryCode="WF" value="+681">Wallis &amp; Futuna (+681)</option>
+                                        <option data-countryCode="YE" value="+969">Yemen (North)(+969)</option>
+                                        <option data-countryCode="YE" value="+967">Yemen (South)(+967)</option>
+                                        <option data-countryCode="ZM" value="+260">Zambia (+260)</option>
+                                        <option data-countryCode="ZW" value="+263">Zimbabwe (+263)</option>
+                                    </select>
+                                    <input name="mobilenumber" id="mobilenumber" type="text" value="" style="width:73%">
+                                    <span class="form_error alert-danger" style="text-align:left!important;"></span>
+                                    <span class="form_error alert-danger" style="text-align:left!important;"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="javascript:void(0)" class="shd" id="show_hideee" onclick="show_hide()">Toggle</a>
+                                <label>Password</label>
+                                <input name="password" id="password" type="password" value="">
+                                <span class="form_error alert-danger" style="text-align:left!important;"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="javascript:void(0)" class="shd" id="show_hideee1" onclick="show_hide1()">Toggle</a>
+                                <label>Confirm Password</label>
+                                <input name="con_password" id='con_password' type="password" value="">
+                                <span class="form_error alert-danger" style="text-align:left!important;"></span>
+                            </div>
+
+                            <input type="submit" value="Sign Up">
+                            <!--?php echo form_close();?-->
+                            <p>Already have an account? <br><a href="">Sign In</a></p>
+                        </div>
+                        <h3>By clicking "<a href="">Sign Up</a>", you agree to our <a href="https://www.zecoex.com/terms-of-use.html" target="_blank">Terms &amp; Conditions</a> and <a href="https://www.zecoex.com/privacy-policy.html" target="_blank">Privacy Policy</a></h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6 center">
+                        <div>
+                            <h2>Overview</h2>
+                            <ul>
+                                <li><a href="">About Us</a></li>
+                                <li><a href="">Partner</a></li>
+                                <li><a href="">About Crypto</a></li>
+                                <li><a href="">FAQ</a></li>
+                                <li><a href="#">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 center">
+                        <div>
+                            <h2>Policies</h2>
+                            <ul>
+                                <li><a href="">Term of Use</a></li>
+                                <li><a href="">AML Policy</a></li>
+                                <li><a href="">KYC Policy</a></li>
+                                <li><a href="">Privacy Policy</a></li>
+                                <li><a href="">Anti-Spam Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2 col-xs-12 center">
+                        <div>
+                            <h2>Contact Us</h2>
+                            <ul>
+                                <li><a href="mailto:Info@zecoex.com">Info@zecoex.com</a></li>
+                                <li><a><strong style="margin-left:20%;">OR</strong><br>Whatsapp Support Available between<br>11 AM - 7 PM IST</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 center social">
+                        <div>
+                            <h2>We are Social</h2>
+                            <ul>
+                                <li><a target="_blank" href="https://plus.google.com/u/1/100453186973488857889"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/ZecoexTechservePLtd/"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/channel/UCFrWO0aA7u-S63-dt2pWboA?view_as=subscriber"><i class="fa fa-youtube"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/zecoex"><i class="fa fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/company/18278944/"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <p>Copyright ZECOEX Online. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </footer>
+
+        <script>
+
+            (function ($) { // Begin jQuery
+                $(function () { // DOM ready
+                    // If a link has a dropdown, add sub menu toggle.
+                    $('nav ul li a:not(:only-child)').click(function (e) {
+                        $(this).siblings('.nav-dropdown').toggle();
+                        // Close one dropdown when selecting another
+                        $('.nav-dropdown').not($(this).siblings()).hide();
+                        e.stopPropagation();
+                    });
+                    // Clicking away from dropdown will remove the dropdown class
+                    $('html').click(function () {
+                        $('.nav-dropdown').hide();
+                    });
+                    // Toggle open and close nav styles on click
+                    $('#nav-toggle').click(function () {
+                        $('nav ul').slideToggle();
+                    });
+                    // Hamburger to X toggle
+                    $('#nav-toggle').on('click', function () {
+                        this.classList.toggle('active');
+                    });
+                }); // end DOM ready
+            })(jQuery); // end jQuery
+        </script>
+
+        <!--script>
+             setInterval(function(){
+                $.ajax({
+                    url:"<?php echo base_url()."users/get_crypto_values"; ?>",
+                    type: "POST",
+                    dataType: "json",
+                    cache: false,
+                    async: true,
+                    success: function(data) {
+                    JSON.stringify(data);
+                    //alert(data.btc_inr_buy_value);
+                    $('#btc_buy').html(Math.round(data.btc_inr_buy_value));
+                    $('#btc_sell').html(Math.round(data.btc_inr_sell_value));
+                    $('#bch_buy').html(Math.round(data.bch_inr_buy_value));
+                    $('#bch_sell').html(Math.round(data.bch_inr_sell_value));
+                    $('#eth_buy').html(Math.round(data.eth_inr_buy_value));
+                    $('#eth_sell').html(Math.round(data.eth_inr_sell_value));
+                    $('#xrp_buy').html(data.xrp_inr_buy_value);
+                    $('#xrp_sell').html(data.xrp_inr_sell_value);
+                    $('#btg_buy').html(Math.data.btg_inr_buy_value);
+                    $('#btg_sell').html(Math.data.btg_inr_sell_value);
+                    $('#avt_buy').html(Math.data.avt_inr_buy_value);
+                    $('#avt_sell').html(Math.data.avt_inr_sell_value);
+                    $('#bat_buy').html(Math.data.bat_inr_buy_value);
+                    $('#bat_sell').html(Math.data.bat_inr_sell_value);
+                    $('#edo_buy').html(Math.data.edo_inr_buy_value);
+                    $('#edo_sell').html(Math.data.edo_inr_sell_value);
+                    $('#eos_buy').html(Math.data.eos_inr_buy_value);
+                    $('#eos_sell').html(Math.data.eos_inr_sell_value);
+                    $('#omg_sell').html(Math.data.omg_inr_sell_value);
+                    $('#omg_buy').html(Math.data.omg_inr_buy_value);
+                    $('#qtum_buy').html(Math.data.qtum_inr_buy_value);
+                    $('#qtum_sell').html(Math.data.qtum_inr_sell_value);
+                    $('#rep_buy').html(Math.data.rep_inr_buy_value);
+                    $('#rep_sell').html(Math.data.rep_inr_sell_value);
+                    $('#san_buy').html(Math.data.san_inr_buy_value);
+                    $('#san_sell').html(Math.data.san_inr_sell_value);
+                    $('#gnt_buy').html(Math.data.gnt_inr_buy_value);
+                    $('#gnt_sell').html(Math.data.gnt_inr_sell_value);
+
+                    $('#iota_buy').html(Math.data.iota_inr_buy_value);
+                    $('#iota_sell').html(Math.data.iota_inr_sell_value);
+                    $('#ltc_buy').html(Math.data.ltc_inr_buy_value);
+                    $('#ltc_sell').html(Math.data.ltc_inr_sell_value);
+                    $('#lsk_buy').html(Math.data.lsk_inr_buy_value);
+                    $('#lsk_sell').html(Math.data.lsk_inr_sell_value);
+                    $('#etc_buy').html(Math.data.etc_inr_buy_value);
+                    $('#etc_sell').html(Math.data.etc_inr_sell_value);
+                    $('#zec_buy').html(Math.data.zec_inr_buy_value);
+                    $('#zec_sell').html(Math.data.zec_inr_sell_value);
+                    $('#dash_buy').html(Math.data.dash_inr_buy_value);
+                    $('#dash_sell').html(Math.data.dash_inr_sell_value);
+                    $('#ada_buy').html(Math.data.ada_inr_buy_value);
+                    $('#ada_sell').html(Math.data.ada_inr_sell_value);
+
+
+                    $('#snt_buy').html(Math.data.snt_inr_buy_value);
+                    $('#snt_sell').html(Math.data.snt_inr_sell_value);
+
+                    $('#ark_buy').html(Math.data.ark_inr_buy_value);
+                    $('#ark_sell').html(Math.data.ark_inr_sell_value);
+
+                    $('#sc_buy').html(Math.data.sc_inr_buy_value);
+                    $('#sc_sell').html(Math.data.sc_inr_sell_value);
+
+                    $('#ant_buy').html(Math.data.ant_inr_buy_value);
+                    $('#ant_sell').html(Math.data.ant_inr_sell_value);
+
+                    $('#neo_buy').html(Math.data.neo_inr_buy_value);
+                    $('#neo_sell').html(Math.data.neo_inr_sell_value);
+
+                    $('#xvg_buy').html(Math.data.xvg_inr_buy_value);
+                    $('#xvg_sell').html(Math.data.xvg_inr_sell_value);
+
+                    $('#ardr_buy').html(Math.data.ardr_inr_buy_value);
+                    $('#ardr_sell').html(Math.data.ardr_inr_sell_value);
+
+                    $('#strat_buy').html(Math.data.strat_inr_buy_value);
+                    $('#strat_sell').html(Math.data.strat_inr_sell_value);
+
+                    $('#dcr_buy').html(Math.data.dcr_inr_buy_value);
+                    $('#dcr_sell').html(Math.data.dcr_inr_sell_value);
+
+                    $('#xem_buy').html(Math.data.xem_inr_buy_value);
+                    $('#xem_sell').html(Math.data.xem_inr_sell_value);
+
+                    $('#fct_buy').html(Math.data.fct_inr_buy_value);
+                    $('#fct_sell').html(Math.data.fct_inr_sell_value);
+
+                    $('#xlm_buy').html(Math.data.xlm_inr_buy_value);
+                    $('#xlm_sell').html(Math.data.xlm_inr_sell_value);
+
+                    $('#data_buy').html(Math.data.data_inr_buy_value);
+                    $('#data_sell').html(Math.data.data_inr_sell_value);
+
+                    $('#sys_buy').html(Math.data.sys_inr_buy_value);
+                    $('#sys_sell').html(Math.data.sys_inr_sell_value);
+
+                    $('#tnb_buy').html(Math.data.tnb_inr_buy_value);
+                    $('#tnb_sell').html(Math.data.tnb_inr_sell_value);
+
+                    $('#trx_buy').html(Math.data.trx_inr_buy_value);
+                    $('#trx_sell').html(Math.data.trx_inr_sell_value);
+
+                    $('#bts_buy').html(Math.data.bts_inr_buy_value);
+                    $('#bts_sell').html(Math.data.bts_inr_sell_value);
+
+                    $('#dgb_buy').html(Math.data.dgb_inr_buy_value);
+                    $('#dgb_sell').html(Math.data.dgb_inr_sell_value);
+
+                    $('#xmr_buy').html(Math.data.xmr_inr_buy_value);
+                    $('#xmr_sell').html(Math.data.xmr_inr_sell_value);
+
+                    $('#steem_buy').html(Math.data.steem_inr_buy_value);
+                    $('#steem_sell').html(Math.data.steem_inr_sell_value);
+
+                    $('#wave_buy').html(Math.data.wave_inr_buy_value);
+                    $('#wave_sell').html(Math.data.wave_inr_sell_value);
+
+                    $('#spank_buy').html(Math.data.spank_inr_buy_value);
+                    $('#spank_sell').html(Math.data.spank_inr_sell_value);
+
+                    $('#qash_buy').html(Math.data.qash_inr_buy_value);
+                    $('#qash_sell').html(Math.data.qash_inr_sell_value);
+
+                    $('#powr_buy').html(Math.data.powr_inr_buy_value);
+                    $('#powr_sell').html(Math.data.powr_inr_sell_value);
+
+                    $('#nxt_buy').html(Math.data.nxt_inr_buy_value);
+                    $('#nxt_sell').html(Math.data.nxt_inr_sell_value);
+
+                    $('#fun_buy').html(Math.data.fun_inr_buy_value);
+                    $('#fun_sell').html(Math.data.fun_inr_sell_value);
+
+                    $('#etp_buy').html(Math.data.etp_inr_buy_value);
+                    $('#etp_sell').html(Math.data.etp_inr_sell_value);
+
+                    $('#doge_buy').html(Math.data.doge_inr_buy_value);
+                    $('#doge_sell').html(Math.data.doge_inr_sell_value);
+
+                    $('#mna_buy').html(Math.data.mna_inr_buy_value);
+                    $('#mna_sell').html(Math.data.mna_inr_sell_value);
+
+                    $('#bcd_buy').html(Math.data.bcd_inr_buy_value);
+                    $('#bcd_sell').html(Math.data.bcd_inr_sell_value);
+
+                    $('#zrx_buy').html(Math.data.zrx_inr_buy_value);
+                    $('#zrx_sell').html(Math.data.zrx_inr_sell_value);
+
+                    $('#yoyow_buy').html(Math.data.yoyow_inr_buy_value);
+                    $('#yoyow_sell').html(Math.data.yoyow_inr_sell_value);
+
+
+                    $('#buy_bfx').html(data.buy_bfx);
+                    $('#sell_bfx').html(data.sell_bfx);
+                    $('#bfx_buy_inr').html(data.bfx_buy_inr.toFixed(2));
+                    $('#bfx_sell_inr').html(data.bfx_sell_inr.toFixed(2));
+                    //console.log(data.buy_bfx);
+                },
+                error: function()
+                {
+                }
+            });
+
+            }, 600000);
+
+
+            $(window).on('resize', function (){
+                $wHeight = $(window).height();
+                $item.height($wHeight);
+            });
+
+            $('.carousel').carousel({
+                interval: 6000,
+                pause: "false"
+            });
+            $('form input').on('keypress', function(e) {
+                return e.which !== 13;
+            });
+        </script-->
+
+        <script type="text/javascript">
+            //Disable right click script
+            var message="Sorry, right-click has been disabled";
+            ///////////////////////////////////
+            function clickIE() {if (document.all) {(message);return false;}}
+            function clickNS(e) {if
+            (document.layers||(document.getElementById&&!document.all)) {
+                if (e.which==2||e.which==3) {(message);return false;}}}
+            if (document.layers)
+            {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+            else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+            document.oncontextmenu=new Function("return false")
+        </script>
+
+        <script type="text/javascript">
+            window.oncontextmenu = function () {
+                return false;
+            }
+            $(document).keydown(function (event) {
+                if (event.keyCode == 123) {
+                    return false;
+                }
+                else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74)) {
+                    return false;
+                }
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+

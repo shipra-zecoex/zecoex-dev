@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="google-site-verification" content="kseEkxXnth5KVx6iTHUHMwRDwg5rwLVO_bwrUiwS0gs" />
+    <script type="text/javascript" async src="https://www.google-analytics.com/analytics.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107414131-1"></script>
+    <meta charset="utf-8">
+    <!--?php
+  if(isset($meta_rec)){
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+    //$meta_rec = $this->meta_info;
+    if (is_array($meta_rec) && !empty($meta_rec)) {
+    ?>
+    <title><?php echo $meta_rec['meta_title']; ?></title>
+    <meta name="description" content="<?php echo $meta_rec['meta_description']; ?>" />
+    <meta  name="keywords" content="<?php echo $meta_rec['meta_keyword']; ?>" />
+    <?php } ?>
+    <title>Zecoex</title>
+    <meta name="description" content="" />
+    <meta  name="keywords" content="" />
+
+    <?php }else{ ?>
+    <title>Zecoex</title>
+    <meta name="description" content="" />
+    <meta  name="keywords" content="" />
+    <?php  }
+?>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+  if(isset($meta_rec)){
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+    //$meta_rec = $this->meta_info;
+    if (is_array($meta_rec) && !empty($meta_rec)) {
+    ?>
+    <title><?php echo $meta_rec['meta_title']; ?></title>
+    <meta name="description" content="<?php echo $meta_rec['meta_description']; ?>" />
+    <meta  name="keywords" content="<?php echo $meta_rec['meta_keyword']; ?>" />
+    <?php }
+
+  }else{ ?>
+    <title>Zecoex</title>
+    <meta name="description" content="" />
+    <meta  name="keywords" content="" />
+    <?php  }
+?-->
+    <link rel="icon" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700" rel="stylesheet" type="text/css">
+    <link href="/assets/new/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <script src="/assets/new/js/html5shiv.js"></script>
+    <!--script src="/assets/new/js/jquery.min.js"></script-->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="/js/dashboard.js"></script>
+
+</head>
+
+    <body onload="$.fn.loadDashboard('<%=Fullname%>');">
+        <div class="hdr-container">
+            <header>
+                <span class="logo"><a href="https://www.zecoex.com/"><img src="/assets/new/images/logo.png" alt="Logo"/></a></span>
+                <a href="javascript:void(0)" id="showmenu" class="menu-icon"></a>
+                <aside class="hdr-right">
+                    <nav class="right-space">
+                        <ul>
+                            <li id='loggedInUserName' style="color: #ebd13c;"></a></li>
+                            <li><a href="/users/dashboard">Dashboard</a></li>
+                            <li id="drop-menu"><a href="#">Trade<b class="caret"></b></a>
+                                <div class="drop-down trade" >
+                                    <div class="mega-menu" id="style-5">
+                                        <div class="categories-list">
+                                            <ul>
+                                                <!--?php
+
+                $currList = $this->db->query("SELECT *  FROM wl_cryptocurrency_list WHERE status='1' AND type='1' AND id !='36'")->result_array();
+
+                                                foreach ($currList as $key => $value) {
+                                                ?>
+                                        <li style="font-size: 12px"> <?php echo $value['symbole'];?>
+                                            <?php if($value['buy_status'] !='0'){ ?>
+                                            <a style="font-size: 10px;color: green;" href="<?= base_url() ?>users/buy/<?= $value['symbole'] ?>/INR">Buy</a>
+                                            <?php }if($value['sell_status'] !='0'){ ?>
+                                            <a style="font-size: 10px;color:red" href="<?= base_url() ?>users/sell/<?= $value['symbole'] ?>/INR">Sell</a></li>
+                                        <?php }
+          }
+        ?-->
+                                            </ul>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="drop-menu"><a href="#">BANK<b class="caret"></b></a>
+                                <div class="drop-down">
+                                    <div class="mega-menu" id="style-5">
+                                        <div class="categories-list">
+                                            <ul>
+                                                <li><a href="/users/withdraw">Withdraw</a></li>
+                                                <li><a href="/users/deposite">Deposit</a></li>
+
+                                            </ul>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="users/wallet">Crypto Wallet</a></li>
+                            <li id="drop-menu"><a href="#">SETTINGS<b class="caret"></b></a>
+                                <div class="drop-down" >
+                                    <div class="mega-menu" id="style-5">
+                                        <div class="categories-list">
+                                            <ul>
+                                                <li><a href="/users/setting">Account Settings</a></li>
+                                                <li><a href="/users/bank_account_details">Bank Accounts</a></li>
+                                                <li><a href="/users/user_verification">Document Verification</a></li>
+                                            </ul>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="logout"><a  href="/users/logout">Logout</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+            </header>
+        </div>
+
+        <div class="clr"></div>
+
+        <div class="container-page">
+            <div class="notification-row">
+                <h4>Notifications</h4>
+                <p id="notify_alert"> </p>
+                <p>
+                    1. LTC & DOGE wallet is live. Checkout CRYPTO WALLET section<br>
+                    2. USDT (Tether) and Darenta (Prod) Trading is live w.e.f April 21, 2018<br>
+                    3. AE (Aeternity), BFT (BnkToTheFuture), ZIL (Zilliqa), LRC (LoopRing), AION (Aion) and RDN (Raiden Network) Trading is live w.e.f June 2, 2018<br>
+                </p>
+            </div>
+            <div class="holding-row">
+                <h2>value of Your Holdings :&nbsp;&nbsp;
+                    <span class="yellow"><i class="fa fa-inr"></i></span>
+                </h2>
+                <h2>value of Your Holdings :&nbsp;&nbsp;
+                    <span class="yellow"><i class="fa fa-usd"></i></span>
+                </h2>
+                <ul>
+                    <!--?php
+
+            function random_color_part() {
+                return str_pad( dechex( mt_rand( 0, 255 ) ), 2, '0', STR_PAD_LEFT);
+            }
+
+            function random_color() {
+                return random_color_part() . random_color_part() . random_color_part();
+            }
+            foreach ($user_ledger as $key => $value) {
+
+                    ?>
+
+                    <li class="" style="border-bottom:5px solid #<?= random_color() ?>; margin-left:3px;">
+                        <div class="col-inner">
+                            <i class="currency-i"><img src="https://s3-ap-southeast-1.amazonaws.com/zecoex.com/DashboardIcons/<?=strtolower($value->image)?>" alt="<?php echo $value->symbole; ?>"></i>
+                            <div class="hold-col inr-dtl">
+                                <p><?php echo $value->symbole; ?></p>
+                                <span><?php echo number_format($value->currency_balance,8,'.','') ?></span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <?php
+
+              }
+            ?-->
+                </ul>
+            </div>
+            <div class="clr"></div>
+            <div class="smart-watch-row">
+                <div class="headin-collapsed"><a href="javascript:void(0)" id="drop-collapsed"><b class="caret"></b></a><h2>My Smartwatch</h2></div>
+                <div class="smart-item">
+                    <ul>
+                        <!--?php
+              //print_r($user_preference);
+                foreach ($user_preference as $key => $preference) {
+                        ?>
+                        <li>
+                            <div class="smart-rate">
+                                <a onclick="remove_preference('<?= $preference->id ?>')"  value=""> <i class="fa fa-star" aria-hidden="true"></i></a>
+
+                                <div class="score">
+                                    <p><?php echo $preference->symbole ?>&nbsp;&nbsp;&nbsp;
+                                        <span style="min-width:10px;float: right;color:#bebebe"><strong><?= ($preference->buy_price < 500) ? number_format($preference->buy_price,2,'.','') : number_format($preference->buy_price,0,'.','') ?> <span style="color:#7fc02a;"
+                                        >B </span></strong></span></p>
+
+                                    <p><span style="min-width:10px;padding-left: 30%;float: right;color:#bebebe;"><strong><?= ($preference->sell_price < 500) ? number_format($preference->sell_price,2,'.','') : number_format($preference->sell_price,0,'.','') ?> <span  style="color:red"
+                                    >S </span> </strong></span></p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <?php }?-->
+                    </ul>
+                    <div class="clr"></div>
+                </div>
+            </div>
+
+            <!-- BID & OFFER -->
+
+            <div class="tabs animated-slide-2">
+                <ul class="tab-links">
+                    <li class="active"><a href="#tab1">ETH TRADE</a></li>
+                    <li class=""><a href="#tab2">INR TRADE</a></li>
+                    <li class=""><a href="#tab3">USDT TRADE</a></li>
+                </ul>
+
+                <div class="tab-content" style="width: 95%;">
+                    <div id="tab1" class="tab active">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>TYPE</th>
+                                    <th>RATE (ETH)</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--?php
+                      if(!empty($eth_curriency)){
+                        foreach ($eth_curriency as $key => $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value['symbole'];?>/ETH</td>
+                                    <td><?= $value['rate'];?></td>
+                                    <td><a class="tradecls" href="<?php echo base_url();?>users/bid/<?php echo $value['symbole'];?>/ETH" class="trade">Trade</a></td>
+                                </tr>
+                                <?php
+                        }
+                      }
+                      ?-->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="tab2" class="tab" style="display: none;">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>TYPE</th>
+                                <th>Rate (INR)</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <!--?php
+                      if(!empty($btc_curriency)){
+                        foreach ($btc_curriency as $key => $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value['symbole'];?>/INR</td>
+                                    <td><?= $value['rate'];?></td>
+                                    <td><a class="tradecls" href="<?php echo base_url();?>users/bid/<?php echo $value['symbole'];?>/INR" class="trade">Trade</a></td>
+                                </tr>
+                                <?php
+                        }
+                      }
+                      ?-->
+                            </tbody>
+                        </table>
+
+                        <div class="clr"></div>
+                    </div>
+
+                    <div id="tab3" class="tab" style="display: none;">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>TYPE</th>
+                                <th>Rate (USDT)</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <!--?php
+                      if(!empty($usdt_curriency)){
+                        foreach ($usdt_curriency as $key => $value) {
+                                ?>
+                                <tr>
+                                    <td><?= $value['symbole'];?>/USDT</td>
+                                    <td><?= $value['rate'];?></td>
+                                    <td><a class="tradecls" href="<?php echo base_url();?>users/bid/<?php echo $value['symbole'];?>/USDT" class="trade">Trade</a></td>
+                                </tr>
+                                <?php
+                        }
+                      }
+                      ?-->
+                            </tbody>
+                        </table>
+
+                        <div class="clr"></div>
+                    </div>
+                </div>
+
+                <div class="exchange-row">
+                    <div class="headin-collapsed collapsed-to"><a href="javascript:void(0)" id="drop-collapsed-to"><b class="caret"></b></a><h2>INR Market</h2>
+                        <span class="inr-mob">/&nbsp;INR</span>
+                        <span class="currency-title">Instant Buy Sell against Indian Currency</span>
+                    </div>
+
+                    <div class="exchange-inner">
+                        <span class="currency-title currency-title-mob">Click on currency to buy/sell</span>
+                        <div class="headin-list-item">
+                            <ul>
+                                <li><span class="hn-buy" style="color:#fff;">Buy</span><span class="hn-sell" style="color:#fff;">Sell</span></li>
+                                <li><span class="hn-buy" style="color:#fff;">Buy</span><span class="hn-sell" style="color:#fff;">Sell</span></li>
+                                <li><span class="hn-buy" style="color:#fff;">Buy</span><span class="hn-sell" style="color:#fff;">Sell</span></li>
+                                <li><span class="hn-buy" style="color:#fff;">Buy</span><span class="hn-sell" style="color:#fff;">Sell</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="clr"></div>
+
+                        <ul class="exchange-list">
+                            <!--?php
+                              //print_r($currency_value);
+                              foreach ($currency_value as $key => $value) {
+                                            $coinid             = $value->id;
+                                            $coin               = $value->symbole;
+                                            $fiatSymbole        = $value->fiatSymbole;
+                                            $status             = $value->status;
+                                            $buy_status         = $value->buy_status;
+                                            $sell_status        = $value->sell_status;
+                                            $buy_price          = $value->buy_price;
+                                            $sell_price         = $value->sell_price;
+
+                                            $numformt  = $buy_price <=500 ? 2:0;
+                                            ?-->
+                            <li>
+                                <div class="currency-col">
+                                    <!--span class="star">
+                                        <php if(!in_array($coin, $user_preference)){ ?>
+                <div class="tooltip"><a id="<?= $coinid ?>" onclick="add_preference('<?= $coinid ?>')"><i class="fa fa-star" aria-hidden="true"></i></a>
+             <span class="tooltiptext">Add to Preference</span></div>
+
+             </span>
+                            <?php }else{ ?>
+                            <div class="tooltip"><a id="<?= $coin ?>"><i class="fa fa-star" aria-hidden="true"></i></a>
+                                <span class="tooltiptext">Already Added</span></div>
+
+                            </span>
+
+
+                            <?php } ?-->
+                                        <span class="bit-name" style="color:#fff;"></span>
+                                        <span class="num-col" id="<?=$coin?>_buy"></span>
+                                        <span class="num-col-02 pd-lt" id="<?=$coin?>_sell"></span>
+                                        <span class="arrow-mob"></span>
+                                        <div class="btn-col">
+                                            <?php if($buy_status == 1){ ?>
+                                            <span class="buy" ><a href="<?php echo base_url();?>users/buy/<?php echo $coin.'/'.$fiatSymbole;?>">Buy</a></span>
+                                            <?php } ?>
+                                            <?php if($sell_status == 1){ ?>
+
+                                            <span class="sell"><a href="<?php echo base_url();?>users/sell/<?php echo $coin.'/'.$fiatSymbole;?>">Sell</a></span>
+                                            <?php } ?>
+                                        </div>
+                                </div>
+                            </li>
+                            <!--?php
+        }
+      ?-->
+                        </ul>
+
+                        <div class="clr"></div>
+
+                    </div>
+                </div>
+
+                <div class="clr"></div>
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="ftr-row">
+                <aside>
+                    <div class="ftr-menu">
+                        <a href="https://www.zecoex.com/about.html" target="_blank">About Us</a>
+                        <a href="https://www.zecoex.com/about-crypto.html" target="_blank">About Crypto</a>
+                        <a href="https://www.zecoex.com/faq.html" target="_blank">FAQ</a>
+                        <a href="https://www.zecoex.com/terms-of-use.html" target="_blank">Terms of Use</a>
+                    </div>
+                    <div class="ftr-menu ftr-menu-in">
+                        <a href="https://www.zecoex.com/aml-policy.html" target="_blank">AML Policy</a>
+                        <a href="https://www.zecoex.com/videos.html" target="_blank">Videos</a>
+                        <a href="https://www.zecoex.com/kyc-policy.html" target="_blank">KYC Policy</a>
+                        <a href="https://www.zecoex.com/privacy-policy.html" target="_blank">Privacy Policy</a>
+                        <a href="https://www.zecoex.com/anti-spam-policy.html" target="_blank">Anti-Spam Policy</a>
+                    </div>
+                </aside>
+
+                <div class="ftr-rt-col"><span>Info@zecoex.com</span><br>OR<br>
+                    <span>Whatsapp Support Available</span>
+                </div>
+
+                <div class="clr"></div>
+            </div>
+
+            <div class="ftr-copyright">
+                <p>&copy; Copyright 2018 Zecoex Techserve Pvt. Ltd. All Rights Reserved.</p>
+                <ul class="ftr-follow">
+                    <li>
+                        <a target="_blank" href="https://t.me/zecoexcryptoassetexchange" class='circle'>
+                            <i class="fa fa-telegram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/ZecoexTechservePLtd/" class='circle'>
+                            <i class='fa fa-facebook'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://plus.google.com/u/1/100453186973488857889" class="circle">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.instagram.com/zecoex/" class='circle'>
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/company/18278944/" class='circle'>
+                            <i class='fa fa-linkedin'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://in.pinterest.com/zecoexTechServePvtLtd/pins/" class='circle'>
+                            <i class="fa fa-pinterest-p"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://twitter.com/zecoex/" class='circle'>
+                            <i class='fa fa-twitter'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.youtube.com/channel/UCFrWO0aA7u-S63-dt2pWboA?view_as=subscriber">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="clr"></div>
+        </footer>
+
+        <!-- /contenido de pagina, realmente no importa -->
+
+        <script>
+            //user-login menu
+            $("#dropdown").on("click", function(e){
+                e.preventDefault();
+
+                if($(this).hasClass("open")) {
+                    $(this).removeClass("open");
+                    $(this).children("ul").slideUp("fast");
+                } else {
+                    $(this).addClass("open");
+                    $(this).children("ul").slideDown("fast");
+                }
+            });
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                $('#drop-collapsed').click(function() {
+                    $('.smart-item').slideToggle();
+                });
+
+                $('#drop-collapsed-to').click(function() {
+                    $('.exchange-inner').slideToggle();
+                });
+
+                $('.arrow-mob').click(function() {
+                    $(".btn-col").hide();
+                    $('.arrow-mob').removeClass("up-arrow");
+                    $(this).closest("li").find('.btn-col').slideToggle();
+                    $(this).toggleClass("up-arrow")
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                //alert("test");
+                setTimeout("$('#msg').hide()",5000);
+
+                $("#showmenu").click(function (){
+                    $("#showmenu").toggleClass("close-hide");
+                    $(".hdr-right").slideToggle("slow");
+                    $(".hdr-right nav li a").click(function (){
+                        $(".hdr-right").slideUp("slow");
+                    });
+                });
+
+            });
+        </script>
+
+        <script>
+            $("#drop-menu").hover(
+                function () {
+                    $(this).addClass("result_hover");
+                },
+                function () {
+                    $(this).removeClass("result_hover");
+                }
+            );
+        </script>
+
+        <script type="text/javascript">
+            function add_preference(id){
+                $('#'+id).attr('disabled','disabled');
+                $.ajax({
+                    url:"<?php echo base_url(); ?>users/ajax_add_preference",
+                    type: "POST",
+                    data: {id : id},
+                    dataType: "html",
+                    success:function(data)
+                    {
+                        var response = JSON.parse(data);
+                        if(response.status == 'true'){
+                            window.location.reload();
+                        }
+                    }
+                });
+            }
+
+            function remove_preference(id){
+                $.ajax({
+                    url:"<?php echo base_url(); ?>users/remove_user_preference",
+                    type: "POST",
+                    data: {id : id},
+                    dataType: "html",
+                    success:function(data)
+                    {
+                        var response = JSON.parse(data);
+                        if(response.status == 'true'){
+                            window.location.reload();
+
+                        }
+                    }
+                });
+            }
+        </script>
+
+            <!--?php $headers = apache_request_headers();
+        $real_client_ip = isset($headers["X-Forwarded-For"]) ? $headers["X-Forwarded-For"] : '127.0.0.1';?-->
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                setInterval(curencyvalue, 5000);
+                $('#notify_alert').html('Your current login ip is: <?=$real_client_ip?>');
+
+            });
+
+            setTimeout(function() {
+                $('#notify_alert').fadeOut('slow');
+            }, 5000);
+        </script>
+
+        <script type="text/javascript">
+            function curencyvalue() {
+
+                $.ajax({url: "https://www.tradedesk.zecoex.com/currency_api/currency_api.php?access_key=Zx2ar0as1ad8ss05ps31", success: function(result){
+
+                        var obj = JSON.parse(result);
+
+                        for (var i = 0; i <= obj.length; i++) {
+
+                            var inr_buy = document.getElementById(obj[i].currency_symbole+"_buy").innerHTML;
+                            var inr_sell = document.getElementById(obj[i].currency_symbole+"_sell").innerHTML;
+
+                            if(inr_buy > obj[i].buy_price || inr_sell > obj[i].sell_price){
+
+                                document.getElementById(obj[i].currency_symbole+"_buy").style.color = "red";
+                                document.getElementById(obj[i].currency_symbole+"_sell").style.color = "red";
+                            }
+                            else if(inr_buy < obj[i].buy_price || inr_sell < obj[i].sell_price){
+
+                                document.getElementById(obj[i].currency_symbole+"_buy").style.color = "green";
+                                document.getElementById(obj[i].currency_symbole+"_sell").style.color = "green";
+
+                            }
+
+                            document.getElementById(obj[i].currency_symbole+"_buy").innerHTML = obj[i].buy_price;
+                            document.getElementById(obj[i].currency_symbole+"_sell").innerHTML = obj[i].sell_price;
+                        }
+                    }
+                });
+            }
+        </script>
+
+
+        <script>
+            jQuery(document).ready(function() {
+                jQuery('.tabs.animated-slide-2 .tab-links a').on('click', function(e)  {
+                    var currentAttrValue = jQuery(this).attr('href');
+
+                    // Show/Hide Tabs
+                    jQuery('.tabs ' + currentAttrValue).slideDown(400).siblings().slideUp(400);
+
+                    // Change/remove current tab to active
+                    jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+                    e.preventDefault();
+                });
+            });
+        </script>
+    </body>
+</html>

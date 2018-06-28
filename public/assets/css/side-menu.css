@@ -1,0 +1,124 @@
+.nav-side-menu{
+    margin: 0px 0 50px 0;
+}
+.nav-side-menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-side-menu ul li a{
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 1s ease 0s;
+    margin:1px 0;
+    background: url(../images/arrow-right.png) no-repeat right 10px top 16px;
+    width: 100%;
+    display: inline-block;
+    padding: 12px 10px;
+    border-radius: 8px;
+}
+.nav-side-menu ul li a:hover{
+    color: #1c1c23;
+    background: url(../images/arrow-right2.png) no-repeat right 10px top 16px #ffbe01;
+}
+.nav-side-menu ul li.active a{
+    color: #1c1c23;
+    background: url(../images/arrow-right2.png) no-repeat right 10px top 16px #ffbe01;
+}
+
+.nav-side-menu ul.sub-menu{
+       margin-left: 24px;
+}
+.nav-side-menu ul.sub-menu li a{
+     background:none; font-weight: 100; padding: 10px 0px; cursor: pointer;
+}
+.nav-side-menu ul.sub-menu li.active a{
+    font-weight: 600;color: #fff; 
+}
+.nav-side-menu ul.sub-menu li a:hover{
+    color: #ffbe01;
+}
+
+.nav-side-menu i{
+     font-size: 18px; margin-right: 8px; vertical-align: -2px;
+}
+
+/***Icons***/
+.fa-trae:before{
+   content: url(../images/icons/trae-ico.png);
+}
+.nav-side-menu ul li a:hover .fa-trae:before{
+   content: url(../images/icons/trae-hover-ico.png);
+}
+.nav-side-menu ul li.active .fa-trae:before{
+   content: url(../images/icons/trae-hover-ico.png);
+}
+.fa-wallet:before{
+   content: url(../images/icons/wallet-ico.png);
+}
+.nav-side-menu ul li a:hover .fa-wallet:before{
+   content: url(../images/icons/wallet-hover-ico.png);
+}
+
+.fa-more:before{
+   content: url(../images/icons/more-ico.png);
+}
+.nav-side-menu ul li.active .fa-more:before{
+   content: url(../images/icons/more-hover-ico.png);
+}
+.nav-side-menu ul li a:hover .fa-more:before{
+   content: url(../images/icons/more-hover-ico.png);
+}
+.fa-referrals:before{
+   content: url(../images/icons/referrals-ico.png);
+}
+.nav-side-menu ul.sub-menu li a:hover .fa-referrals:before{
+   content: url(../images/icons/referrals-hover-ico.png);
+}
+.fa-profile:before{
+   content: url(../images/icons/profile-ico.png);
+}
+.nav-side-menu ul.sub-menu li a:hover .fa-profile:before{
+   content: url(../images/icons/profile-hover-ico.png);
+}
+
+.fa-password:before{
+   content: url(../images/icons/change-password-ico.png);
+}
+.nav-side-menu ul.sub-menu li a:hover .fa-password:before{
+   content: url(../images/icons/change-hover-password-ico.png);
+}
+
+.fa-bank2:before{
+   content: url(../images/icons/bank-ico.png);
+}
+.nav-side-menu ul.sub-menu li a:hover .fa-bank2:before{
+   content: url(../images/icons/bank-hover-ico.png);
+}
+
+.fa-key:before{
+   content: url(../images/icons/key-ico.png);
+}
+.nav-side-menu ul li a:hover .fa-key:before{
+   content: url(../images/icons/key-hover-ico.png);
+}
+.nav-side-menu ul li.active .fa-key:before{
+   content: url(../images/icons/key-hover-ico.png);
+}
+
+.nav-side-menu ul li.active .fa-wallet:before{
+   content: url(../images/icons/wallet-hover-ico.png);
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="kseEkxXnth5KVx6iTHUHMwRDwg5rwLVO_bwrUiwS0gs" />
+    <script type="text/javascript" async src="https://www.google-analytics.com/analytics.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107414131-1"></script>
+    <link rel="icon" href="/assets/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zecoex Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700" rel="stylesheet" type="text/css">
+    <link href="/assets/new/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="/css/signIn.css" type="text/css" rel="stylesheet" media="all">
+    <script src="/assets/new/js/html5shiv.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="/js/signIn.js"></script>
+</head>
+
+<body onload="$.fn.showSignInMessage('<%=errorMessage%>', '<%=succMessage%>', '<%=userId%>');">
+    <div class="hdr-container">
+        <header>
+            <span class="logo"><a href="https://www.zecoex.com/"><img src="https://www.zecoex.com/images/logo.png" width="50%" alt="Zecoex" /></a></span>
+            <aside class="hdr-right">
+                <div class="hdr-ist">IST</div>
+            </aside>
+        </header>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="container-page">
+
+        <div class="login-page">
+            <aside>
+                <div class="login-col-lt">
+                    <h2>Asia's Fastest Growing Crypto Asset Exchange</h2>
+                    <p>We make it easy to buy, sell, store, use and accept Cryptocurrencies</p>
+                    <a href="/users/forgot_password" class="forget-link">Forgot Password?</a>
+                </div>
+            </aside>
+
+            <section>
+                <form id="signInForm" action="/signIn" method="post">
+                    <div class="login-col-rt">
+                        <h1>Login</h1>
+                        <div class="login-row">
+                            <input type="text" name="userid" id="userid" placeholder="Email/User ID">
+                            <span class="form_error alert-danger" style="text-align:left!important;"></span>
+                        </div>
+                        <div class="login-row">
+                            <input type="password" name="password" id="password" placeholder="Password">
+                            <span class="form_error alert-danger" style="text-align:left!important;"></span>
+                        </div>
+                        <button id="sign-up-button" class="sub-mit-btn" type="submit" onclick=" return $.fn.validateSignInForm();">Sign In Now</button>
+                    </div>
+                    <div class="success-bg-col" style="padding-left: 40px;">
+                        <span id="errorMsg" style="display: none"></span>
+                        <span id="successMsg" style="display: none"></span>
+                    </div>
+                </form>
+            </section>
+            <div class="clr"></div>
+        </div>
+
+        <div class="clr"></div>
+    </div>
+
+    <div class="footer">
+        <div class="main_container">
+            <div class="list">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="https://www.zecoex.com/about.html">About Us</a></li>
+                    <li><a href="https://www.zecoex.com/about-crypto.html">About Cryptos</a></li>
+                    <li><a href="https://www.zecoex.com/videos.html">Videos</a></li>
+                    <li><a href="https://www.zecoex.com/news.html">News</a></li>
+                    <li><a href="https://www.zecoex.com/support.html">Support</a></li>
+                    <li><a href="https://www.zecoex.com/faq.html">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="list">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="https://www.zecoex.com/terms-of-use.html">Terms of Use</a></li>
+                    <li><a href="https://www.zecoex.com/aml-policy.html">AML Policy</a></li>
+                    <li><a href="https://www.zecoex.com/kyc-policy.html">KYC Policy</a></li>
+                    <li><a href="https://www.zecoex.com/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="https://www.zecoex.com/anti-spam-policy.html">Anti-Spam Policy</a></li>
+                </ul>
+            </div>
+            <div class="list">
+                <h3>Contact Us</h3>
+                <a href="mailto:info@zecoex.com">info@zecoex.com</a><br>OR<br>Whatsapp Support Available  <br>10 AM - 7 PM IST<br>
+            </div>
+            <div class="clr"></div>
+            <div class="social">
+                <a href="https://t.me/zecoexcryptoassetexchange" target="_blank"><img src="/assets/images/Social Media Icons/Telegram.png" width="50px"></a>
+                <a href="https://www.facebook.com/ZecoexTechservePLtd/" target="_blank"><img src="/assets/images/Social Media Icons/Facebook.png" width="50px"></a>
+                <a href="https://plus.google.com/u/0/+ZECOEXTECHSERVEPVTLTD" target="_blank"><img src="/assets/images/Social Media Icons/GooglePlus.png" width="50px"></a>
+                <a href="https://www.instagram.com/zecoex/" target="_blank"><img src="/assets/images/Social Media Icons/Instagram.png" width="50px"></a>
+                <a href="https://www.linkedin.com/company/zecoex-techserve-pvt-ltd/" target="_blank"><img src="/assets/images/Social Media Icons/LinkedIN.png" width="50px"></a>
+                <a href="https://in.pinterest.com/zecoexTechServePvtLtd/pins/" target="_blank"><img src="/assets/images/Social Media Icons/pinterest.png" width="50px"></a>
+                <a href="https://twitter.com/zecoex" target="_blank"><img src="/assets/images/Social Media Icons/Twitter.png" width="50px"></a>
+                <a href="https://www.youtube.com/channel/UCrERGT1EHi0jvEGTFcsyKTg/videos?disable_polymer=1" target="_blank"><img src="/assets/images/Social Media Icons/YouTube.png" width="50px"></a>
+            </div>
+            <div class="foo">&copy; Copyright 2018 Zecoex Techserve Pvt. Ltd.</div>
+        </div>
+    </div>
+</body>
+</html>
